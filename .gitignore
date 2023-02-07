@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Old versions
+development/
+
+# Ximea API
+ximea/

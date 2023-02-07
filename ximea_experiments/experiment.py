@@ -6,7 +6,6 @@ from ximea_experiments.ximea_cam import camConnect
 
 class experiment:
     def __init__(self, settings={}, record_times=[], supply_roi=False):
-        print(supply_roi)
         if not supply_roi:
             connection = camConnect(settings)  # Create camera object with user defined settings
             connection.captureImg()  # Capture single image

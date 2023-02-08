@@ -9,7 +9,6 @@ class experiment:
         if not supply_roi:
             connection = camConnect(settings)  # Create camera object with user defined settings
             connection.captureImg()  # Capture single image
-            print('fuck')
             choose_coords = coordinateSelect(connection.data, 1)  # Choose ROI from camera image
             connection.addROI(choose_coords.dimensions)  # Add saved ROI to camera settings
 

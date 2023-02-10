@@ -21,8 +21,7 @@ options:
   -d DURATION, --duration DURATION
                         number of seconds to record, default = 5s
   -i INTERVALS, --intervals INTERVALS
-                        intervals in minutes to take recordings at, supplied like [0,1,3,5,10] (comma seperated and
-                        square brackets)
+                        intervals in minutes to take recordings at, supplied like 0,1,3,5,10 (comma seperated)
   -g GAIN, --gain GAIN  Gain in dB, default = 0
   -e EXPOSURE, --exposure EXPOSURE
                         Exposure in ms, default = 5 ms
@@ -35,20 +34,20 @@ options:
 Here is an example of how you would take a 5-second recording at times: 0 minutes, 1 minute, 3 minutes and 5 minutes with 
 framerate 500fps gain of 10dB and exposure of 1.8ms and save the results in a folder named 'take_1'
 
-`ximea_experiments.py -f 500 -d 5 -i [0,1,3,5] -g 10 -e 1.8 -t take_1`
+`ximea_experiments.py -f 500 -d 5 -i 0,1,3,5 -g 10 -e 1.8 -t take_1`
 
 Equivalently:
 
-`ximea_experiments.py --framerate 500 -duration 5 --intervals [0,1,3,5] -g 10 -e 1.8 -take_number take_1`
+`ximea_experiments.py --framerate 500 -duration 5 --intervals 0,1,3,5 -g 10 -e 1.8 -take_number take_1`
 
 If you want to supply a custom ROI, instead of using the interactive/graphical picker, use `-r`. The previous example 
 would become:
 
-`ximea_experiments.py -f 500 -d 5 -i [0,1,3,5] -g 10 -e 1.8 -t take_1 -r 100,150,10,20`
+`ximea_experiments.py -f 500 -d 5 -i 0,1,3,5 -g 10 -e 1.8 -t take_1 -r 100,150,10,20`
 
 Equivalently:
 
-`ximea_experiments.py --framerate 500 -duration 5 --intervals [0,1,3,5] -g 10 -e 1.8 -take_number take_1 -roi 100,150,10,20`
+`ximea_experiments.py --framerate 500 -duration 5 --intervals 0,1,3,5 -g 10 -e 1.8 -take_number take_1 -roi 100,150,10,20`
 
 for a ROI of width = 100px and height = 150px, x_offset = 10px, y_offset = 20px
 

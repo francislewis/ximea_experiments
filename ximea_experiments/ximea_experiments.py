@@ -549,7 +549,7 @@ if __name__ == "__main__":
                            help='The serial number of the camera to record from. If not provided the first connected camera is used')
     argparser.add_argument('-f', '--framerate', default=100, type=int, help='framerate to record at in fps, default is 100fps')
     argparser.add_argument('-d', '--duration', default=5, type=int, help='number of seconds to record, default = 5s')
-    argparser.add_argument('-i', '--intervals', default=[0], help='intervals in minutes to take recordings at, supplied like [0,1,3,5,10] (comma seperated and square brackets)')
+    argparser.add_argument('-i', '--intervals', default=[0], help='intervals in minutes to take recordings at, supplied like 0,1,3,5,10 (comma seperated)')
     argparser.add_argument('-g', '--gain', default='0', type=int,  help='Gain in dB, default = 0')
     argparser.add_argument('-e', '--exposure', default='5', type=float, help='Exposure in ms, default = 5 ms')
     argparser.add_argument('-t', '--take_number', default='1', help='String to name folder where results will be stored')
@@ -559,10 +559,6 @@ if __name__ == "__main__":
     args = argparser.parse_args()
 
     args = argparser.parse_args()
-
-    # test = {'duration': int(args.duration), 'record_times': list(args.intervals), 'framerate': int(args.framerate), 'exposure': float(args.exposure), 'gain': int(args.gain),
-    #            'parent_folder': str(args.take_number), 'roi': list(args.roi.split(','))}
-    # print(test)
 
     # This will automatically grab the first connected camera's SN
     if args.camera_sn == 0:
@@ -575,10 +571,11 @@ if __name__ == "__main__":
     # USER DEFINED SETTINGS
     duration = int(args.duration)
     framerate = int(args.framerate)
-    exposure = float(args.expsoure)
+    exposure = float(args.exposure)
     gain = int(args.gain)
     parent_folder = str(args.take_number)
-    record_times = list(args.record_times)
+    record_times = list(args.intervals.split(","))
+    record_times = [int(i) for i in record_times]
 
     user_settings = {'cam_sn': cam_sn, 'duration': duration, 'framerate': framerate, 'exposure': exposure, 'gain': gain,
                      'parent_folder': parent_folder}

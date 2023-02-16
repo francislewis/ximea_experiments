@@ -38,7 +38,7 @@ framerate 500fps gain of 10dB and exposure of 1.8ms and save the results in a fo
 
 Equivalently:
 
-`ximea_experiments.py --framerate 500 -duration 5 --intervals 0,1,3,5 -g 10 -e 1.8 -take_number take_1`
+`ximea_experiments.py --framerate 500 --duration 5 --intervals 0,1,3,5 --gain 10 --exposure 1.8 -take_number take_1`
 
 If you want to supply a custom ROI, instead of using the interactive/graphical picker, use `-r`. The previous example 
 would become:
@@ -47,7 +47,7 @@ would become:
 
 Equivalently:
 
-`ximea_experiments.py --framerate 500 -duration 5 --intervals 0,1,3,5 -g 10 -e 1.8 -take_number take_1 -roi 100,150,10,20`
+`ximea_experiments.py --framerate 500 --duration 5 --intervals 0,1,3,5 --gain 10 --exposure 1.8 -take_number take_1 -roi 100,150,10,20`
 
 for a ROI of width = 100px and height = 150px, x_offset = 10px, y_offset = 20px
 

@@ -353,6 +353,13 @@ def detect_skipped_frames(recording_buffer: RecordingBuffers):
 
 ###################### Utility Functions ######################
 
+def round_neare(num):
+    """
+        round_to_nearest_even
+    """
+    rounded_num = round(num)
+    return rounded_num if rounded_num % 2 == 0 else rounded_num + 1
+
 def frame_metadata_as_dict(img):
     def ctypes_convert(obj):  # Very crippled implementation, that is good enough to convert XI_IMG structs.
         if isinstance(obj, (bool, int, float, str)):
@@ -434,8 +441,8 @@ def set_roi(cam, roi):
     capture_width = (round(desired_width / allowed_x_offset_increment) * allowed_x_offset_increment if (desired_width % allowed_x_offset_increment) != 0 else desired_width)
     capture_height = (round(desired_height / allowed_height_increment) * allowed_height_increment if (desired_height % allowed_height_increment) != 0 else desired_height)
     # Now values are allowed, can pass to camera
-    cam.set_width(capture_width)
-    cam.set_height(capture_height)
+    cam.set_width(round_neare(capture_width))
+    cam.set_height(round_neare(capture_height))
 
     # Have to first set height and width, only then can offsets be set
     capture_x_offset = (round(desired_x_offset / allowed_x_offset_increment) * allowed_x_offset_increment if (desired_x_offset % allowed_x_offset_increment) != 0 else desired_x_offset)

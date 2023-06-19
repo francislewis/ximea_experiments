@@ -86,7 +86,7 @@ you may need to lower the exposure
   XIMEA cameras) This rounding occurs in `set_roi` within [`xirec.py`](ximea_experiments/xirec.py).
   - Even with the correction in `xirec.set_roi()` it seems that certain choices still fail. If you get a 
   `ximea.xiapi.Xi_error` immediately after selecting the ROI then just restart the script and try again, 
-  changing the ROI selection slightly
+  changing the ROI selection slightly. I think this is fixed now (19/06/23) but I haven't been able to check - the width and height need to be even.
 
 ### Acknowledgements
 - [`xirec`](ximea_experiments/xirec.py) is mostly copied from [kaspervn/xirec](https://github.com/kaspervn/xirec), 
